@@ -1,7 +1,6 @@
 package br.com.alura.screenmatch.modelos;
 
-import br.com.alura.screenmatch.excecao.ErroDeConversaoDeAnoException;
-import com.google.gson.annotations.SerializedName;
+import br.com.alura.screenmatch.excecao.ErroDeConversaoDeAno;
 
 public class Titulo implements Comparable<Titulo> {
   private String nome;
@@ -20,7 +19,7 @@ public class Titulo implements Comparable<Titulo> {
     this.nome = meuTituloOmdb.title();
 
     if (meuTituloOmdb.year().length() > 4) {
-      throw new ErroDeConversaoDeAnoException("Ano não convertido");
+      throw new ErroDeConversaoDeAno("Ano não convertido");
     }
     this.anoDeLancamento = Integer.valueOf(meuTituloOmdb.year());
     this.duracaoEmMinutos = Integer.valueOf(meuTituloOmdb.runtime().substring(0, 2));
